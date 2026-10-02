@@ -1,5 +1,12 @@
 console.log("Jordan Shoes");
 
+const formatCurrency = (number) => {
+  return number.toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+};
+
 const getProducts = async () => {
   const response = await fetch("../JS/products.json");
   const data = await response.json();
@@ -23,13 +30,11 @@ const generateCards = async () => {
             <h5>${product.product_model}</h5>
         </div>
 
-        <h6 class="card__produto_price">R$ ${product.price.toFixed(2).replace('.', ',')}</h6>
+        <h6 class="card__produto_price">${formatCurrency(product.price)}</h6>
     `;
 
     const listaProdutos = document.querySelector(".lista__produtos");
     listaProdutos.appendChild(card);
-
-
   });
 };
 
