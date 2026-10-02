@@ -49,7 +49,8 @@ O **Jordan Shoes** é um projeto frontend focado no catálogo visual de tênis d
 ├── js/
 │   ├── script.js
 │   └── products.json
-└── index.html
+│── index.html
+└── README.md
 
 ```
 
