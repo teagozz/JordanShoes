@@ -68,6 +68,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 .produtos {
@@ -116,7 +117,8 @@ main {
   flex-basis: 336px;
 }
 
-.card__produto figure {
+.card__produto figure,
+.produto__detalhes_imagens figure {
   background-color: var(--white-soft);
   display: flex;
   align-items: center;
@@ -130,14 +132,20 @@ main {
   margin-block: 24px;
 }
 
-.card__produto_detalhes h4 {
+.card__produto_detalhes h4,
+.detalhes h4 {
   font-size: 18px;
   line-height: 28px;
 }
-.card__produto_detalhes h5 {
+.card__produto_detalhes h5,
+.detalhes h5 {
   font-size: 16px;
   line-height: 26px;
   color: var(--brand-color);
+}
+.card__produto h6,
+.detalhes h6 {
+  font-size: 18px;
 }
 .card__produto_price {
   font-size: 20px;
@@ -211,4 +219,42 @@ main {
   .card__produto_detalhes h4 {
     font-size: 16px;
   }
+}
+
+/* detalhes dos tenis */
+
+.produto__detalhes {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+
+  justify-content: center;
+  gap: 32px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.produto__detalhes_imagens {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.detalhes,
+.tamanho,
+.button,
+.descricao {
+  margin-bottom: 20xp;
+}
+.button {
+  width: 100%;
+}
+.button button {
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+
+  background-color: var(--dark);
+  color: var(--white);
 }
