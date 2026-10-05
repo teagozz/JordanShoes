@@ -173,24 +173,25 @@ main {
 .numeros {
   height: 40px;
   border: 1px solid #ccc;
-  width: 40px;
-
   border-radius: 8px;
-  display:flex;
+
+  display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 }
 
-.numeros:hover{
-  cursor:pointer;
-  border-color: var(--brand-color);
+.numeros:hover {
+  border-color: var(--dark);
 }
 
-.radio{
+.radio {
   display: none;
 }
-.selecionado{
-  border-color: var(--dark)
+
+.selecionado {
+  border-color: var(--dark);
 }
 
 .descricao {
@@ -342,7 +343,7 @@ details a {
 .tamanho,
 .button,
 .descricao {
-  margin-bottom: 20xp;
+  margin-bottom: 20px;
 }
 .button {
   width: 100%;
