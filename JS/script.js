@@ -43,7 +43,6 @@ const generateCards = async () => {
     preencherCard(card, products);
   });
 };
-
 generateCards();
 
 botaoVoltar.addEventListener("click", () => {
@@ -60,13 +59,11 @@ const preencherDadosProduto = (product) => {
   imagesArray.map((image) => {
     image.src = `./images/${product.image}`;
   });
-
   const titulo = document.querySelector(".produto__detalhes_info .detalhes h4");
   const descricao = document.querySelector(
     ".produto__detalhes_info .detalhes h5",
   );
   const preco = document.querySelector(".produto__detalhes_info .detalhes h6");
-
   titulo.innerText = product.product_name;
   descricao.innerText = product.product_model;
   preco.innerText = formatCurrency(product.price);
@@ -74,13 +71,11 @@ const preencherDadosProduto = (product) => {
 
 // mudar ícone do details frete
 const details = document.querySelector("details");
-
 details.addEventListener("toggle", () => {
   const summary = document.querySelector("summary");
   summary.classList.toggle("icone-expandir");
   summary.classList.toggle("icone-recolher");
 });
-
 // preencherCard
 const preencherCard = (card, products) => {
   card.addEventListener("click", (e) => {
@@ -88,7 +83,6 @@ const preencherCard = (card, products) => {
     sectionProdutos.style.display = "none";
     botaoVoltar.style.display = "block";
     sectionDetalhesProduto.style.display = "grid";
-
     // identificar qual card foi clicado
     const cardClicado = e.currentTarget;
     const idProduto = cardClicado.id;
