@@ -136,19 +136,16 @@ main {
   margin-block: 24px;
 }
 
-.card__produto_detalhes h4,
-.detalhes h4 {
+.card__produto_detalhes h4 {
   font-size: 18px;
   line-height: 28px;
 }
-.card__produto_detalhes h5,
-.detalhes h5 {
+.card__produto_detalhes h5 {
   font-size: 16px;
   line-height: 26px;
   color: var(--brand-color);
 }
-.card__produto h6,
-.detalhes h6 {
+.card__produto h6 {
   font-size: 18px;
 }
 .card__produto_price {
@@ -157,7 +154,42 @@ main {
   font-family: "Space Grotesk", sans-serif;
 }
 
+.tamanho h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tamanhos {
+  display: grid;
+  grid-template-columns: (4, 1fr);
+  gap: 8px;
+}
+
+.numeros {
+  height: 40px;
+  border: 1px solid #ccc;
+}
+
 /* detalhes dos tenis */
+.detalhes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detalhes h4 {
+  font-size: 24px;
+}
+
+.detalhes h5 {
+  font-size: 16px;
+  color: var(--brand-color);
+}
+
+.detalhes h6 {
+  font-size: 24px;
+  font-family: "Space Grotesk", sans-serif;
+}
 
 .produto__detalhes {
   width: 100%;
