@@ -47,6 +47,8 @@
 
             </section>
         </section>
+        
+        <div class="voltar">Voltar</div>
 
         <section class="produto__detalhes">
             <div class="produto__detalhes_imagens">
@@ -108,16 +110,18 @@
                 </div>
 
                 <details class="frete">
-                    <summary>Calcular frete e entrega</summary>
+                    <summary class="icone-expandir">Calcular frete e entrega</summary>
 
                     <p>Calcule o frete e o prazo de entrega estimados para a sua região!</p>
 
 
                     <label for="">Insira o seu cep</label>
-                    <input type="text" placeholder="00000-000" name="cep" id="cep">
-                    <button type="button" id="calcular-frete">Calcular</button>
-
-                    <a href="">Não sei meu CEP</a>
+                    <div class="input">
+                        <input type="text" placeholder="00000-000" name="cep" id="cep">
+                        <button type="button" id="calcular-frete">Calcular</button>
+                    </div>
+                    <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank"
+                        rel="noopener noreferrer">Não sei meu CEP</a>
                 </details>
             </div>
         </section>
