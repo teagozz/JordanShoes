@@ -1,9 +1,12 @@
 const botaoVoltar = document.querySelector(".voltar");
 const sectionDetalhesProduto = document.querySelector(".produto__detalhes");
 const sectionProdutos = document.querySelector(".produtos");
-// ocultar seção e botão de detalhes do produto
-botaoVoltar.style.display = "none";
-sectionDetalhesProduto.style.display = "none";
+
+const ocultarBotaoSecao = () => {
+  // ocultar seção e botão de detalhes do produto
+  botaoVoltar.style.display = "none";
+  sectionDetalhesProduto.style.display = "none";
+};
 
 const formatCurrency = (number) => {
   return number.toLocaleString("pt-br", {
@@ -63,9 +66,8 @@ const generateCards = async () => {
 generateCards();
 
 botaoVoltar.addEventListener("click", () => {
-  botaoVoltar.style.display = "none";
-  sectionDetalhesProduto.style.display = "none";
   sectionProdutos.style.display = "flex";
+  ocultarBotaoSecao();
 });
 
 const preencherDadosProduto = (product) => {
@@ -88,3 +90,12 @@ const preencherDadosProduto = (product) => {
   descricao.innerText = product.product_model;
   preco.innerText = formatCurrency(product.price);
 };
+
+// mudar ícone do details frete
+const details = document.querySelector("details");
+
+details.addEventListener("toggle", () => {
+  const summary = document.querySelector("summary");
+  summary.classList.toggle("icone-expandir");
+  summary.classList.toggle("icone-recolher");
+});
