@@ -1,5 +1,6 @@
 const botaoVoltar = document.querySelector(".voltar");
 const sectionDetalhesProduto = document.querySelector(".produto__detalhes");
+const sectionProdutos = document.querySelector(".produtos");
 // ocultar seção e botão de detalhes do produto
 botaoVoltar.style.display = "none";
 sectionDetalhesProduto.style.display = "none";
@@ -41,11 +42,18 @@ const generateCards = async () => {
     listaProdutos.appendChild(card);
 
     card.addEventListener("click", () => {
+      sectionProdutos.style.display = "none";
       // mostrar botão e detalhes do produto
-      botaoVoltar.style.display = "block"
+      botaoVoltar.style.display = "block";
       sectionDetalhesProduto.style.display = "grid";
     });
   });
 };
 
 generateCards();
+
+botaoVoltar.addEventListener("click", () => {
+  botaoVoltar.style.display = "none";
+  sectionDetalhesProduto.style.display = "none";
+  sectionProdutos.style.display = "flex";
+});
