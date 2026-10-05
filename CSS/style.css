@@ -166,13 +166,31 @@ main {
 
 .tamanhos {
   display: grid;
-  grid-template-columns: (4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
 }
 
 .numeros {
   height: 40px;
   border: 1px solid #ccc;
+  width: 40px;
+
+  border-radius: 8px;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.numeros:hover{
+  cursor:pointer;
+  border-color: var(--brand-color);
+}
+
+.radio{
+  display: none;
+}
+.selecionado{
+  border-color: var(--dark)
 }
 
 .descricao {
