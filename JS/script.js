@@ -23,6 +23,7 @@ const generateCards = async () => {
 
   products.map((product) => {
     let card = document.createElement("div");
+    card.id = product.id;
     card.classList.add("card__produto");
 
     card.innerHTML = `
@@ -41,11 +42,20 @@ const generateCards = async () => {
     const listaProdutos = document.querySelector(".lista__produtos");
     listaProdutos.appendChild(card);
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+      // ocultar produtos e mostrar botão e detalhes do produto
       sectionProdutos.style.display = "none";
-      // mostrar botão e detalhes do produto
       botaoVoltar.style.display = "block";
       sectionDetalhesProduto.style.display = "grid";
+
+      // identificar qual card foi clicado
+      const cardClicado = e.currentTarget;
+      const idProduto = cardClicado.id;
+      const produtoClicado = products.find(
+        (product) => product.id == idProduto,
+      );
+      // preencher os dados de detalhes do prod
+      preencherDadosProduto(produtoClicado);
     });
   });
 };
@@ -57,3 +67,24 @@ botaoVoltar.addEventListener("click", () => {
   sectionDetalhesProduto.style.display = "none";
   sectionProdutos.style.display = "flex";
 });
+
+const preencherDadosProduto = (product) => {
+  // preencher imagens, nome modelo e preço
+  const images = document.querySelectorAll(
+    ".produto__detalhes_imagens figure img",
+  );
+  const imagesArray = Array.from(images);
+  imagesArray.map((image) => {
+    image.src = `./images/${product.image}`;
+  });
+
+  const titulo = document.querySelector(".produto__detalhes_info .detalhes h4");
+  const descricao = document.querySelector(
+    ".produto__detalhes_info .detalhes h5",
+  );
+  const preco = document.querySelector(".produto__detalhes_info .detalhes h6");
+
+  titulo.innerText = product.product_name;
+  descricao.innerText = product.product_model;
+  preco.innerText = formatCurrency(product.price);
+};
