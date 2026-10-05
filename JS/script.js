@@ -13,7 +13,7 @@ const formatCurrency = (number) => {
 };
 
 const getProducts = async () => {
-  const response = await fetch("../JS/products.json");
+  const response = await fetch("./JS/products.json");
   const data = await response.json();
   return data;
 };
@@ -28,7 +28,7 @@ const generateCards = async () => {
 
     card.innerHTML = `
         <figure>
-            <img src="/images/${product.image}" alt="${product.product_name}" />
+            <img src="./images/${product.image}" alt="${product.product_name}" />
         </figure>
 
         <div class="card__produto_detalhes">
