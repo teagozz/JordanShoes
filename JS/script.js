@@ -1,4 +1,8 @@
-console.log("Jordan Shoes");
+const botaoVoltar = document.querySelector(".voltar");
+const sectionDetalhesProduto = document.querySelector(".produto__detalhes");
+// ocultar seção e botão de detalhes do produto
+botaoVoltar.style.display = "none";
+sectionDetalhesProduto.style.display = "none";
 
 const formatCurrency = (number) => {
   return number.toLocaleString("pt-br", {
@@ -35,6 +39,12 @@ const generateCards = async () => {
 
     const listaProdutos = document.querySelector(".lista__produtos");
     listaProdutos.appendChild(card);
+
+    card.addEventListener("click", () => {
+      // mostrar botão e detalhes do produto
+      botaoVoltar.style.display = "block"
+      sectionDetalhesProduto.style.display = "grid";
+    });
   });
 };
 
