@@ -7,6 +7,7 @@ const ocultarBotaoSecao = () => {
   botaoVoltar.style.display = "none";
   sectionDetalhesProduto.style.display = "none";
 };
+ocultarBotaoSecao;
 
 const formatCurrency = (number) => {
   return number.toLocaleString("pt-br", {
@@ -23,43 +24,23 @@ const getProducts = async () => {
 
 const generateCards = async () => {
   const products = await getProducts();
-
   products.map((product) => {
     let card = document.createElement("div");
     card.id = product.id;
     card.classList.add("card__produto");
-
     card.innerHTML = `
         <figure>
             <img src="./images/${product.image}" alt="${product.product_name}" />
         </figure>
-
         <div class="card__produto_detalhes">
             <h4>${product.product_name}</h4>
             <h5>${product.product_model}</h5>
         </div>
-
         <h6 class="card__produto_price">${formatCurrency(product.price)}</h6>
     `;
-
     const listaProdutos = document.querySelector(".lista__produtos");
     listaProdutos.appendChild(card);
-
-    card.addEventListener("click", (e) => {
-      // ocultar produtos e mostrar botão e detalhes do produto
-      sectionProdutos.style.display = "none";
-      botaoVoltar.style.display = "block";
-      sectionDetalhesProduto.style.display = "grid";
-
-      // identificar qual card foi clicado
-      const cardClicado = e.currentTarget;
-      const idProduto = cardClicado.id;
-      const produtoClicado = products.find(
-        (product) => product.id == idProduto,
-      );
-      // preencher os dados de detalhes do prod
-      preencherDadosProduto(produtoClicado);
-    });
+    preencherCard(card, products);
   });
 };
 
@@ -99,3 +80,20 @@ details.addEventListener("toggle", () => {
   summary.classList.toggle("icone-expandir");
   summary.classList.toggle("icone-recolher");
 });
+
+// preencherCard
+const preencherCard = (card, products) => {
+  card.addEventListener("click", (e) => {
+    // ocultar produtos e mostrar botão e detalhes do produto
+    sectionProdutos.style.display = "none";
+    botaoVoltar.style.display = "block";
+    sectionDetalhesProduto.style.display = "grid";
+
+    // identificar qual card foi clicado
+    const cardClicado = e.currentTarget;
+    const idProduto = cardClicado.id;
+    const produtoClicado = products.find((product) => product.id == idProduto);
+    // preencher os dados de detalhes do prod
+    preencherDadosProduto(produtoClicado);
+  });
+};
