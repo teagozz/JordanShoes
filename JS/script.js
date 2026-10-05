@@ -1,14 +1,14 @@
 const botaoVoltar = document.querySelector(".voltar");
 const sectionDetalhesProduto = document.querySelector(".produto__detalhes");
 const sectionProdutos = document.querySelector(".produtos");
-ocultarBotaoSecao;
+;
 
 const ocultarBotaoSecao = () => {
   // ocultar seção e botão de detalhes do produto
   botaoVoltar.style.display = "none";
   sectionDetalhesProduto.style.display = "none";
 };
-
+ocultarBotaoSecao
 const formatCurrency = (number) => {
   return number.toLocaleString("pt-br", {
     style: "currency",
